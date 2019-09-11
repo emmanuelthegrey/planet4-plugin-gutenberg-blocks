@@ -1,12 +1,12 @@
 import {Articles} from './Articles.js';
-import {shortCodeTag, shortcodeAttributes, gutenbergTag, gutenbergAttributes} from './ArticlesConfig.js';
+import {articlesConfig} from './ArticlesConfig.js';
 
 export class ArticlesBlock {
   constructor() {
     const {registerBlockType} = wp.blocks;
     const {withSelect} = wp.data;
 
-    registerBlockType(gutenbergTag, {
+    registerBlockType(articlesConfig.gutenbergTag, {
       title: 'Articles',
       icon: 'welcome-widgets-menus',
       category: 'planet4-blocks',
@@ -19,13 +19,13 @@ export class ArticlesBlock {
           {
             type: 'shortcode',
             // Shortcode tag can also be an array of shortcode aliases
-            tag: shortCodeTag,
-            attributes: shortcodeAttributes,
+            tag: articlesConfig.shortCodeTag,
+            attributes: articlesConfig.shortcodeAttributes,
           },
         ]
       },
       // This attributes definition mimics the one in the PHP side.
-      attributes: gutenbergAttributes,
+      attributes: articlesConfig.gutenbergAttributes,
       // withSelect is a "Higher Order Component", it works as
       // a Decorator, it will provide some basic API functionality
       // through `select`.

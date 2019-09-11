@@ -1,12 +1,13 @@
 import { CoversIcon } from './CoversIcon.js';
 import { Covers } from './Covers.js';
+import { coversConfig } from './CoversConfig.js';
 
 export class CoversBlock {
     constructor() {
       const { registerBlockType } = wp.blocks;
       const { withSelect } = wp.data;
 
-      registerBlockType( 'planet4-blocks/covers', {
+      registerBlockType(coversConfig.gutenbergTag, {
         title: 'Covers',
         icon: CoversIcon,
         category: 'planet4-blocks',
@@ -19,72 +20,13 @@ export class CoversBlock {
             {
               type: 'shortcode',
               // Shortcode tag can also be an array of shortcode aliases
-              tag: 'shortcake_newcovers',
-              attributes: {
-                cover_type: {
-                  type: 'integer',
-                  // This `shortcode` definition will be used as a callback,
-                  // it is a function which expects an object with at least
-                  // a `named` key with `cover_type` property whose default value is 1.
-                  // See: https://simonsmith.io/destructuring-objects-as-function-parameters-in-es6
-                  shortcode: ({named: {cover_type = '1'}}) => cover_type,
-                },
-                title: {
-                  type: 'string',
-                  shortcode: ({named: {title = ''}}) => title,
-                },
-                description: {
-                  type: 'string',
-                  shortcode: ({named: {description = ''}}) => description,
-                },
-                covers_view: {
-                  type: 'string',
-                  shortcode: ({named: {covers_view = ''}}) => covers_view,
-                },
-                tags: {
-                  type: 'string',
-                  shortcode: ({named: {tags = ''}}) => tags.split(','),
-                },
-                post_types: {
-                  type: 'string',
-                  shortcode: ({named: {post_types = ''}}) => post_types.split(','),
-                },
-                posts: {
-                  type: 'string',
-                  shortcode: ({named: {posts = ''}}) => posts.split(','),
-                },
-              },
+              tag: coversConfig.shortCodeTag,
+              attributes: coversConfig.shortCodeAttributes,
             },
           ]
         },
         // This attributes definition mimics the one in the PHP side.
-        attributes: {
-          title: {
-            type: 'string',
-          },
-          description: {
-            type: 'string',
-          },
-          tags: {
-            type: 'array',
-            default: []
-          },
-          posts: {
-            type: 'array',
-            default: []
-          },
-          post_types: {
-            type: 'array',
-            default: []
-          },
-          covers_view: {
-            type: 'string',
-            default: '1'
-          },
-          cover_type: {
-            type: 'string',
-          }
-        },
+        attributes: coversConfig.gutenbergAttributes,
         // withSelect is a "Higher Order Component", it works as
         // a Decorator, it will provide some basic API functionality
         // through `select`.
