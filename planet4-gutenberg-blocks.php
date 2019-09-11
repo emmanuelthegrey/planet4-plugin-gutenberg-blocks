@@ -180,12 +180,14 @@ function my_plugin_allowed_block_types( $allowed_block_types, $post ) {
 		'core-embed/wordpress-tv',
 	];
 
+	$postBlockTypes = array_merge(POST_BLOCK_TYPES, $wordpress_blocks);
+
 	$allowed_block_types = [
-		'post'     => POST_BLOCK_TYPES,
+		'post'     => $postBlockTypes,
 		'page'     => PAGE_BLOCK_TYPES,
 		'campaign' => CAMPAIGN_BLOCK_TYPES,
 	];
-	return array_merge( $wordpress_blocks, $allowed_block_types[ $post->post_type ] );
+	return $allowed_block_types[ $post->post_type ];
 }
 
 add_filter( 'allowed_block_types', 'my_plugin_allowed_block_types', 10, 2 );

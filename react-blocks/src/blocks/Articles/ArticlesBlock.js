@@ -1,5 +1,7 @@
 import {Articles} from './Articles.js';
-import {articlesConfig} from './ArticlesConfig.js';
+import articlesConfig from './ArticlesConfig.js';
+
+console.log(articlesConfig);
 
 export class ArticlesBlock {
   constructor() {
