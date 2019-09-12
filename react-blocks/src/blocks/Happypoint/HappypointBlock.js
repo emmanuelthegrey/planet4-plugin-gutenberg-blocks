@@ -1,5 +1,5 @@
 import {Happypoint} from './Happypoint';
-import {happypointConfig} from './HappypointConfig';
+import happypointConfig from './HappypointConfig';
 
 export class HappypointBlock {
     constructor() {

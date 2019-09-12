@@ -1,5 +1,5 @@
 import {Gallery} from './Gallery';
-import {galleryConfig} from './GalleryConfig';
+import galleryConfig from './GalleryConfig';
 
 const {__} = wp.i18n;
 

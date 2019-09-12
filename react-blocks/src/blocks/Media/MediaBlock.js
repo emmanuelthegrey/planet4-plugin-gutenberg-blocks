@@ -1,5 +1,5 @@
 import {Media} from './Media';
-import {mediaConfig} from './MediaConfig';
+import mediaConfig from './MediaConfig';
 
 const {__} = wp.i18n;
 

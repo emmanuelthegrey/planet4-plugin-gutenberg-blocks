@@ -1,5 +1,5 @@
 import {Submenu} from './Submenu.js';
-import {submenuConfig} from './SubmenuConfig';
+import submenuConfig from './SubmenuConfig';
 
 export class SubmenuBlock {
   constructor() {

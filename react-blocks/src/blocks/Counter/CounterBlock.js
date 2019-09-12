@@ -1,5 +1,5 @@
 import { Counter } from './Counter.js';
-import { counterConfig } from './CounterConfig';
+import counterConfig from './CounterConfig';
 
 export class CounterBlock {
   constructor() {

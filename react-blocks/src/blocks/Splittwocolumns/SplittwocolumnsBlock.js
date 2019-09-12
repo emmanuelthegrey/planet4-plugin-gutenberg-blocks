@@ -1,5 +1,5 @@
 import {Splittwocolumns} from './Splittwocolumns';
-import {splitTwoColumnsConfig} from './SplittwocolumnsConfig';
+import splitTwoColumnsConfig from './SplittwocolumnsConfig';
 
 const {__} = wp.i18n;
 

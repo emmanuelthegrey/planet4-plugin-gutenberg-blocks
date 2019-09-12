@@ -1,5 +1,5 @@
 import {Socialmedia} from './Socialmedia.js';
-import {socialMediaConfig} from './SocialMediaConfig';
+import socialMediaConfig from './SocialMediaConfig';
 
 export class SocialmediaBlock {
   constructor() {

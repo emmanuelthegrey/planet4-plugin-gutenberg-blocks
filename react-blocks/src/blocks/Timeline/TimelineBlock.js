@@ -1,5 +1,5 @@
 import {Timeline} from './Timeline.js';
-import {timelineConfig} from './TimelineConfig';
+import timelineConfig from './TimelineConfig';
 
 const {__} = wp.i18n;
 

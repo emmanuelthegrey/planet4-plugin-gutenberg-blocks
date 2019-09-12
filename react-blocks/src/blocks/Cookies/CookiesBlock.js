@@ -1,5 +1,5 @@
 import {Cookies} from './Cookies.js';
-import {cookiesConfig} from './CookiesConfig';
+import cookiesConfig from './CookiesConfig';
 
 export class CookiesBlock {
   constructor() {
