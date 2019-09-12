@@ -1,4 +1,5 @@
 import {Happypoint} from './Happypoint';
+import {happypointConfig} from './HappypointConfig';
 
 export class HappypointBlock {
     constructor() {
@@ -6,7 +7,7 @@ export class HappypointBlock {
       const {__} = wp.i18n;
       const { withSelect } = wp.data;
 
-      registerBlockType( 'planet4-blocks/happypoint', {
+      registerBlockType( happypointConfig.gutenbergTag, {
         title: __('Happypoint', 'p4ge'),
         icon: 'format-image',
         category: 'planet4-blocks',
@@ -25,54 +26,12 @@ export class HappypointBlock {
             {
               type: 'shortcode',
               // Shortcode tag can also be an array of shortcode aliases
-              tag: 'shortcake_happy_point',
-              attributes: {
-                opacity: {
-                  type: 'integer',
-                  shortcode: ({named: {opacity = ''}}) => opacity,
-                },
-                id: {
-                  type: 'integer',
-                  shortcode: ({named: {id = ''}}) => id,
-                },
-                focus_image: {
-                  type: 'string',
-                  shortcode: ({named: {focus_image = ''}}) => focus_image,
-                },
-                mailing_list_iframe: {
-                  type: 'string',
-                  shortcode: ({named: {mailing_list_iframe = ''}}) => mailing_list_iframe,
-                },
-                iframe_url: {
-                  type: 'string',
-                  shortcode: ({named: {iframe_url = ''}}) => iframe_url,
-                },
-              },
+              tag: happypointConfig.shortCodeTag,
+              attributes: happypointConfig.shortCodeAttributes,
             },
           ]
         },
-        attributes: {
-          focus_image: {
-            type: 'string',
-          },
-          opacity: {
-            type: 'number',
-            default: 60
-          },
-          mailing_list_iframe: {
-            type: 'boolean',
-          },
-          iframe_url: {
-            type: 'string',
-          },
-          id: {
-            type: 'number',
-          },
-          load_iframe: {
-            type: 'boolean',
-            default: false
-          }
-        },
+        attributes: happypointConfig.gutenbergAttributes,
         edit: withSelect( ( select, props ) => {
           const { attributes } = props;
           const { id } = attributes;

@@ -1,4 +1,5 @@
 import {Gallery} from './Gallery';
+import {galleryConfig} from './GalleryConfig';
 
 const {__} = wp.i18n;
 
@@ -8,7 +9,7 @@ export class GalleryBlock {
       const {__} = wp.i18n;
       const { withSelect } = wp.data;
 
-      registerBlockType( 'planet4-blocks/gallery', {
+      registerBlockType( galleryConfig.gutenbergTag, {
         title: __('Gallery', 'p4ge'),
         icon: 'format-gallery',
         category: 'planet4-blocks',
@@ -31,54 +32,12 @@ export class GalleryBlock {
             {
               type: 'shortcode',
               // Shortcode tag can also be an array of shortcode aliases
-              tag: 'shortcake_gallery',
-              attributes: {
-                gallery_block_style: {
-                  type: 'integer',
-                  shortcode: ({named: {gallery_block_style = ''}}) => gallery_block_style,
-                },
-                gallery_block_title: {
-                  type: 'string',
-                  shortcode: ({named: {gallery_block_title = ''}}) => gallery_block_title,
-                },
-                gallery_block_description: {
-                  type: 'string',
-                  shortcode: ({named: {gallery_block_description = ''}}) => gallery_block_description,
-                },
-                multiple_image: {
-                  type: 'string',
-                  shortcode: ({named: {multiple_image = ''}}) => multiple_image,
-                },
-                gallery_block_focus_points: {
-                  type: 'string',
-                  shortcode: ({named: {gallery_block_focus_points = ''}}) => gallery_block_focus_points,
-                },
-              },
+              tag: galleryConfig.shortCodeTag,
+              attributes: galleryConfig.shortCodeAttributes,
             },
           ]
         },
-        attributes: {
-          gallery_block_style: {
-            type: 'number',
-            default: 1
-          },
-          gallery_block_title: {
-            type: 'string',
-          },
-          gallery_block_description: {
-            type: 'string',
-          },
-          multiple_image: {
-            type: 'string',
-          },
-          gallery_block_focus_points: {
-            type: 'string',
-          },
-          image_data: {
-            type: 'object',
-            default: []
-          },
-        },
+        attributes: galleryConfig.gutenbergAttributes,
         edit: withSelect( ( select, props ) => {
 
           const { attributes } = props;
