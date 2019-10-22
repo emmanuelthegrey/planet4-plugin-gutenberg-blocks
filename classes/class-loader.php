@@ -354,6 +354,8 @@ final class Loader {
 			],
 			$css_blocks_creation
 		);
+
+		wp_enqueue_script( 'media', P4GBKS_PLUGIN_URL . 'public/js/media.js', [ 'jquery' ], '0.1', true );
 	}
 
 	/**
