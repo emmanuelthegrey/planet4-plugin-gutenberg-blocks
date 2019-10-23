@@ -168,6 +168,9 @@ final class Loader {
 		// Setup image sizes.
 		add_action( 'admin_init', [ $this, 'setup_image_sizes' ] );
 
+		// Set color palette
+		add_action( 'admin_init', [ $this, 'set_color_palette' ] );
+
 		// Register a block category.
 		add_filter( 'block_categories', [ $this, 'register_block_category' ], 10, 2 );
 		// Provide hook for other plugins.
@@ -396,6 +399,62 @@ final class Loader {
 			$common,
 			$categories
 		);
+	}
+
+	public function set_color_palette() {
+		add_theme_support( 'editor-color-palette', array(
+			array(
+				'name'  => __( 'Dark Shade Black', '@@textdomain' ),
+				'slug'  => 'dark-shade-black',
+				'color' => '#1a1a1a',
+			),
+			array(
+				'name'  => __( 'Green', '@@textdomain' ),
+				'slug'  => 'green',
+				'color'	=> '#003300',
+			),
+
+			array(
+				'name'  => __( 'Green 80%', '@@textdomain' ),
+				'slug'  => 'green-80',
+				'color' => '#1b4a1b',
+			),
+			array(
+				'name'	=> __( 'Dark Tiber', '@@textdomain' ),
+				'slug'	=> 'dark-tiber',
+				'color'	=> '#052a30',
+			),
+			array(
+				'name'	=> __( 'Genoa', '@@textdomain' ),
+				'slug'	=> 'genoa',
+				'color'	=> '#186a70',
+			),
+			array(
+				'name'	=> __( 'X Dark Blue', '@@textdomain' ),
+				'slug'	=> 'x-dark-blue',
+				'color'	=> '#042233',
+			),
+			array(
+				'name'	=> __( 'All Ports', '@@textdomain' ),
+				'slug'	=> 'allports',
+				'color'	=> '#007799',
+			),
+			array(
+				'name'	=> __( 'Dark Blue', '@@textdomain' ),
+				'slug'	=> 'dark-blue',
+				'color'	=> '#074365',
+			),
+			array(
+				'name'	=> __( 'Blue', '@@textdomain' ),
+				'slug'	=> 'blue',
+				'color'	=> '#2077bf',
+			),
+			array(
+				'name'	=> __( 'Grey', '@@textdomain' ),
+				'slug'	=> 'grey',
+				'color'	=> '#333333',
+			),
+		) );
 	}
 
 	/**
